@@ -1,13 +1,21 @@
 package br.edu.ifal.schoolsystem.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name  = "aluno")
 public class Aluno {
+	
+	@Id
 	private String id;
+	
+	@Column
 	private String matricula;
+	
+	@Column
 	private String nome;
 	
 	public Aluno(String id, String matricula, String nome) {
