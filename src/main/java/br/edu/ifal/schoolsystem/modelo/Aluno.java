@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Aluno {
 	
 	@Id
-	private String id;
+	private int id;
 	
 	@Column
 	private String matricula;
@@ -18,7 +18,7 @@ public class Aluno {
 	@Column
 	private String nome;
 	
-	public Aluno(String id, String matricula, String nome) {
+	public Aluno(int id, String matricula, String nome) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
@@ -29,11 +29,11 @@ public class Aluno {
 		super();
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
