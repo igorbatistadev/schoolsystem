@@ -2,71 +2,40 @@ package br.edu.ifal.schoolsystem.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import br.edu.ifal.schoolsystem.modelo.Aluno;
 
 public class AlunoDAO implements DAOInterface <Aluno, String>{
 	
-	private Session currentSession;
+	private final String PERSISTENCE_UNIT_NAME = "psunit1";
+	private EntityManagerFactory factory;
+	private EntityManager em;
 	
-	private Transaction currentTransaction;
-
 	public AlunoDAO() {
+		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 	}
 	
-	public static SessionFactory getSessionFactory() {
-		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
-		return sessionFactory;
+	public void iniciarConexao() {
+		em = factory.createEntityManager();
+		em.getTransaction().begin();			
 	}
 	
-	public Session openCurrentSession() {
-		currentSession = getSessionFactory().openSession();
-		return currentSession;
+	public void fecharConexao() {
+		em.getTransaction().commit();
+		em.close();	
 	}
 	
-	public Session openCurrentSessionwithTransaction() {
-		currentSession = getSessionFactory().openSession();
-		currentTransaction = currentSession.beginTransaction();
-		return currentSession;
-	}
-	
-	public void closeCurrentSession() {
-		currentSession.close();
+
+	public void salvar(Aluno aluno) {
+		iniciarConexao();
+		em.persist(aluno);
+		fecharConexao();		
 	}
 
-	public void closeCurrentSessionwithTransaction() {
-		currentTransaction.commit();
-		currentSession.close();
-	}
-	
-	public Session getCurrentSession() {
-		return currentSession;
-	}
-
-	public void setCurrentSession(Session currentSession) {
-		this.currentSession = currentSession;
-	}
-
-	public Transaction getCurrentTransaction() {
-		return currentTransaction;
-	}
-
-	public void setCurrentTransaction(Transaction currentTransaction) {
-		this.currentTransaction = currentTransaction;
-	}
-
-	public void salvar(Aluno entity) {
-		getCurrentSession().save(entity);		
-	}
-
-	public void atualizar(Aluno entity) {
+	public void atualizar(Aluno aluno) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -76,7 +45,7 @@ public class AlunoDAO implements DAOInterface <Aluno, String>{
 		return null;
 	}
 
-	public void deletar(Aluno enity) {
+	public void deletar(Aluno aluno) {
 		// TODO Auto-generated method stub
 		
 	}
