@@ -1,8 +1,11 @@
 package br.edu.ifal.schoolsystem.modelo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +20,9 @@ public class Aluno {
 	
 	@Column
 	private String nome;
+	
+	@ManyToMany
+	private List<Disciplina> disciplinas;
 	
 	public Aluno(int id, String matricula, String nome) {
 		super();
@@ -51,6 +57,14 @@ public class Aluno {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 	@Override
