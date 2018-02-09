@@ -1,8 +1,11 @@
 package br.edu.ifal.schoolsystem.modelo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +20,9 @@ public class Professor {
 	
 	@Column
 	private String formacao;
+	
+	@OneToMany
+	private List<Disciplina> disciplinas;
 	
 	public Professor() {
 		super();
@@ -48,11 +54,24 @@ public class Professor {
 	public String getFormacao() {
 		return formacao;
 	}
+	
 	public void setFormacao(String formacao) {
 		if(formacao != null) {
 			this.formacao = formacao;
 		}
 	}
+	
+	
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Professor [nome=" + nome + ", formacao=" + formacao + "]";
