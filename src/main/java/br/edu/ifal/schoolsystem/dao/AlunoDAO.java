@@ -36,18 +36,23 @@ public class AlunoDAO implements DAOInterface <Aluno, String>{
 	}
 
 	public void atualizar(Aluno aluno) {
-		// TODO Auto-generated method stub
+		iniciarConexao();
+		em.merge(aluno);
+		fecharConexao();
 		
 	}
 
-	public Aluno buscarPorId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Aluno buscarPorId(Aluno aluno, String id) {
+		iniciarConexao();
+		em.find(List<Aluno>, id);
+		fecharConexao();
+		return aluno;
 	}
 
 	public void deletar(Aluno aluno) {
-		// TODO Auto-generated method stub
-		
+		iniciarConexao();
+		em.remove(aluno);
+		fecharConexao();
 	}
 
 	public List<Aluno> buscarTodos() {

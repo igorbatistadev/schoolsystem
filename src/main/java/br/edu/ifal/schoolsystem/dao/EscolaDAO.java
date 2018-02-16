@@ -46,7 +46,6 @@ public class EscolaDAO implements DAOInterface <Escola, String>{
 	}
 
 	public void deletar(Escola escola) {
-		// TODO Auto-generated method stub
 		
 	}
 

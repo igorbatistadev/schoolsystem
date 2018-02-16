@@ -1,6 +1,7 @@
 package br.edu.ifal.schoolsystem.modelo;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,12 +26,12 @@ public class Escola {
 	@ManyToMany
 	private List<Curso> cursos;
 	
-	public Escola(int id, String nome, List<Professor> professores, List<Curso> cursos) {
+	public Escola() {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.professores = professores;
-		this.cursos = cursos;
+		this.professores = new ArrayList<Professor>();
+		this.cursos = new ArrayList<Curso>();
 	}
 
 	public int getId() {
@@ -91,5 +92,11 @@ public class Escola {
     public void removerProfessor(Professor p) {
     	professores.remove(p);
   }
+
+	@Override
+	public String toString() {
+		return "Escola [id=" + id + ", nome=" + nome + ", professores=" + professores + ", cursos=" + cursos + "]";
+	}
+    
 }
 
