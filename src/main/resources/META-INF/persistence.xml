@@ -9,6 +9,8 @@
 		<class>br.edu.ifal.schoolsystem.modelo.Aluno</class>
 		<class>br.edu.ifal.schoolsystem.modelo.Professor</class>
 		<class>br.edu.ifal.schoolsystem.modelo.Disciplina</class>
+		<class>br.edu.ifal.schoolsystem.modelo.Curso</class>
+		<class>br.edu.ifal.schoolsystem.modelo.Escola</class>
 		
         <properties>
         	<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
