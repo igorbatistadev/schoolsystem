@@ -25,6 +25,10 @@ public class Escola {
 	@ManyToMany
 	private List<Curso> cursos;
 	
+	public Escola() {
+		
+	}
+	
 	public Escola(int id, String nome, List<Professor> professores, List<Curso> cursos) {
 		super();
 		this.id = id;
