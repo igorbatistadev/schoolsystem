@@ -42,9 +42,10 @@ public class AlunoDAO implements DAOInterface <Aluno, String>{
 		
 	}
 
-	public Aluno buscarPorId(Aluno aluno, String id) {
+	public Aluno buscarPorId(String id) {
 		iniciarConexao();
-		em.find(List<Aluno>, id);
+		int idetificador = Integer.parseInt(id);
+		Aluno aluno = em.find(Aluno.class, idetificador);
 		fecharConexao();
 		return aluno;
 	}

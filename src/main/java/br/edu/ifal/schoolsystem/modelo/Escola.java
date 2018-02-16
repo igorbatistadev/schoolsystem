@@ -27,6 +27,10 @@ public class Escola {
 	private List<Curso> cursos;
 	
 	public Escola() {
+		
+	}
+	
+	public Escola(int id, String nome, List<Professor> professores, List<Curso> cursos) {
 		super();
 		this.id = id;
 		this.nome = nome;

@@ -13,6 +13,7 @@
 		<class>br.edu.ifal.schoolsystem.modelo.Escola</class>
 		
         <properties>
+        
         	<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
         	
         	<property name="hibernate.connection.url" 

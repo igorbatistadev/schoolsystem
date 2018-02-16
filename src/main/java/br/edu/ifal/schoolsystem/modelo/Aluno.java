@@ -9,21 +9,21 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name  = "aluno")
+@Table(name = "aluno")
 public class Aluno {
-	
+
 	@Id
 	private int id;
-	
+
 	@Column
 	private String matricula;
-	
+
 	@Column
 	private String nome;
-	
+
 	@ManyToMany
 	private List<Disciplina> disciplinas;
-	
+
 	public Aluno(int id, String matricula, String nome) {
 		super();
 		this.id = id;
@@ -71,6 +71,5 @@ public class Aluno {
 	public String toString() {
 		return "Aluno [id=" + id + ", matricula=" + matricula + ", nome=" + nome + "]";
 	}
-	
-	
+
 }
