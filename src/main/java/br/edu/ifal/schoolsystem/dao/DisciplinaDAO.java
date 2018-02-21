@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import br.edu.ifal.schoolsystem.modelo.Aluno;
 import br.edu.ifal.schoolsystem.modelo.Disciplina;
 
 public class DisciplinaDAO implements DAOInterface <Disciplina, String>{
@@ -25,7 +26,7 @@ public class DisciplinaDAO implements DAOInterface <Disciplina, String>{
 		
 		public void fecharConexao() {
 			em.getTransaction().commit();
-			em.close();	
+			em.close();
 		}
 		
 
@@ -36,18 +37,27 @@ public class DisciplinaDAO implements DAOInterface <Disciplina, String>{
 		}
 
 		public void atualizar(Disciplina disciplina) {
-			// TODO Auto-generated method stub
+			iniciarConexao();
+			em.merge(disciplina);
+			fecharConexao();
 			
 		}
 
 		public Disciplina buscarPorId(String id) {
-			// TODO Auto-generated method stub
-			return null;
+			iniciarConexao();
+			int identificador = Integer.parseInt(id);
+			Disciplina disciplina = em.find(Disciplina.class, identificador);
+			fecharConexao();
+			return disciplina;
 		}
-
-		public void deletar(Disciplina disciplina) {
-			// TODO Auto-generated method stub
-			
+		
+		public void deletarPorId(String id) {
+			iniciarConexao();
+			int identificador = Integer.parseInt(id);
+			Disciplina disciplina = em.find(Disciplina.class, identificador);
+			em.remove(disciplina);
+			System.out.println("Excluído com Sucesso!");
+			fecharConexao();
 		}
 
 		public List<Disciplina> buscarTodos() {
