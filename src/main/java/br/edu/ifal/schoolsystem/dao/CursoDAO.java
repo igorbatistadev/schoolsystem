@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import br.edu.ifal.schoolsystem.modelo.Aluno;
 import br.edu.ifal.schoolsystem.modelo.Curso;
 
 public class CursoDAO implements DAOInterface <Curso, String>{
@@ -36,21 +37,31 @@ public class CursoDAO implements DAOInterface <Curso, String>{
 	}
 
 	public void atualizar(Curso curso) {
-		// TODO Auto-generated method stub
+		iniciarConexao();
+		em.merge(curso);
+		fecharConexao();
 		
 	}
 
 	public Curso buscarPorId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		iniciarConexao();
+		int identificador = Integer.parseInt(id);
+		Curso curso = em.find(Curso.class, identificador);
+		fecharConexao();
+		return curso;
 	}
 
-	public void deletar(Curso curso) {
-		// TODO Auto-generated method stub
+	public void deletarPorId(String id) {
+		iniciarConexao();
+		int identificador = Integer.parseInt(id);
+		Curso curso = em.find(Curso.class, identificador);
+		em.remove(curso);
+		System.out.println("Excluído com Sucesso!");
+		fecharConexao();
 		
 	}
 
-	public List<Curso> buscarTodos() {
+	/*public List<Curso> buscarTodos() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -58,7 +69,7 @@ public class CursoDAO implements DAOInterface <Curso, String>{
 	public void deletarTodos() {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
 }
 
