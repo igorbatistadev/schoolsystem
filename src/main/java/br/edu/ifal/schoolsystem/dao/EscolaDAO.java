@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import br.edu.ifal.schoolsystem.modelo.Aluno;
 import br.edu.ifal.schoolsystem.modelo.Escola;
 
 public class EscolaDAO implements DAOInterface <Escola, String>{
@@ -20,7 +21,7 @@ public class EscolaDAO implements DAOInterface <Escola, String>{
 	
 	public void iniciarConexao() {
 		em = factory.createEntityManager();
-		em.getTransaction().begin();			
+		em.getTransaction().begin();		
 	}
 	
 	public void fecharConexao() {
@@ -36,20 +37,30 @@ public class EscolaDAO implements DAOInterface <Escola, String>{
 	}
 
 	public void atualizar(Escola escola) {
-		// TODO Auto-generated method stub
+		iniciarConexao();
+		em.merge(escola);
+		fecharConexao();
 		
 	}
 
 	public Escola buscarPorId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		iniciarConexao();
+		int identificador = Integer.parseInt(id);
+		Escola escola = em.find(Escola.class, identificador);
+		fecharConexao();
+		return escola;
 	}
 
-	public void deletar(Escola escola) {
-		
+	public void deletarPorId(String id) {
+		iniciarConexao();
+		int identificador = Integer.parseInt(id);
+		Escola escola = em.find(Escola.class, identificador);
+		em.remove(escola);
+		System.out.println("Excluído com Sucesso!");
+		fecharConexao();
 	}
 
-	public List<Escola> buscarTodos() {
+	/*public List<Escola> buscarTodos() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -57,6 +68,6 @@ public class EscolaDAO implements DAOInterface <Escola, String>{
 	public void deletarTodos() {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
 }

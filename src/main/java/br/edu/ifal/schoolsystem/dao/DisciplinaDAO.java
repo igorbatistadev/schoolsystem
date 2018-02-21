@@ -60,7 +60,7 @@ public class DisciplinaDAO implements DAOInterface <Disciplina, String>{
 			fecharConexao();
 		}
 
-		public List<Disciplina> buscarTodos() {
+		/*public List<Disciplina> buscarTodos() {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -68,5 +68,5 @@ public class DisciplinaDAO implements DAOInterface <Disciplina, String>{
 		public void deletarTodos() {
 			// TODO Auto-generated method stub
 			
-		}
+		}*/
 }
