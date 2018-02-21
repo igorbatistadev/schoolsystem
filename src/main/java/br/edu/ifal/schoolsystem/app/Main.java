@@ -13,9 +13,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		AlunoDAO dao = new AlunoDAO();	
-		Aluno aluna = dao.buscarPorId("69");
-		System.out.println(aluna);
+		AlunoDAO dao = new AlunoDAO();
+		//Aluno aluno = dao.buscarPorId("69");
+		//Aluno aluno = new Aluno(10,"1023a120","Rodrigo Rodrigues");
+		//dao.atualizar(aluno);
+		//dao.deletar(aluno);
+		/*Aluno aluna = dao.buscarPorId("69");
+		System.out.println(aluna);*/
+		
+		//dao.buscarTodos();
+		
+		dao.deletarPorId("59");
+		
+		//System.out.println(Aluno.class + dao.toString());
 
 		/*
 		Aluno aluno = new Aluno(69, "654654", "Maria");
