@@ -70,6 +70,13 @@ public class Disciplina {
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
+
+	@Override
+	public String toString() {
+		return "Disciplina: id = " + id + ", nome = " + nome + ", alunos = " + alunos + ", professor = " + professor + ".";
+	}
+
+	
 	
 	
 

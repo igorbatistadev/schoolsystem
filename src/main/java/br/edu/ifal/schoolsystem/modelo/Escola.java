@@ -99,7 +99,7 @@ public class Escola {
 
 	@Override
 	public String toString() {
-		return "Escola [id=" + id + ", nome=" + nome + ", professores=" + professores + ", cursos=" + cursos + "]";
+		return "Escola: id = " + id + ", nome = " + nome + ", professores = " + professores + ", cursos = " + cursos + ".";
 	}
     
 }

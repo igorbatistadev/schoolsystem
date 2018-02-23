@@ -24,12 +24,16 @@ public class Professor {
 	@OneToMany
 	private List<Disciplina> disciplinas;
 	
+	public Professor(int id, String nome, String formacao) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.formacao = formacao;
+	}
 	public Professor() {
 		super();
-		nome = "";
-		formacao = "";
+		
 	}
-	
 	
 	public int getId() {
 		return id;
@@ -74,7 +78,7 @@ public class Professor {
 
 	@Override
 	public String toString() {
-		return "Professor [nome=" + nome + ", formacao=" + formacao + "]";
+		return "Professor: nome = " + nome + ", formacao = " + formacao + ".";
 	}
 	
 }

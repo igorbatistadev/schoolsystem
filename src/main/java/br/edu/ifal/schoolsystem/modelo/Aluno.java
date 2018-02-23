@@ -69,7 +69,7 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno [id=" + id + ", matricula=" + matricula + ", nome=" + nome + "]";
+		return "Aluno: id = " + id + ", matricula = " + matricula + ", nome = " + nome + ".";
 	}
 
 }
