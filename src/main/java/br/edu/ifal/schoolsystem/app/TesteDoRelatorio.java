@@ -22,16 +22,21 @@ public class TesteDoRelatorio {
 		Disciplina poo = new Disciplina (3,"POO",alunos,null);
 		
 		List <Nota> notas = new ArrayList<Nota>();
-		notas.add(new Nota(1,ze,poo,7.5));
+		notas.add(new Nota(1,ze,poo,2.5));
 		
 		notas.add(new Nota(2,ana,poo,9.5));
 		
-		notas.add(new Nota(3,joao,poo,2.5));
+		notas.add(new Nota(3,joao,poo,7.5));
 		
 		Relatorio relatorio = new Relatorio ();
 		relatorio.gerar(notas);
 		
-		System.out.println(relatorio.getMaiorNota());
+		double maiorNotaEsperada = 9.5;
+		double menorNotaEsperada = 2.5;
+		
+		System.out.println(relatorio.getMaiorNota() == maiorNotaEsperada);
+		
+		System.out.println(relatorio.getMenorNota() == menorNotaEsperada);
 	}
 
 }
