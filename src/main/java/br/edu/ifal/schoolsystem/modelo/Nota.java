@@ -21,6 +21,13 @@ public class Nota {
 	
 	@Column
 	private double Valor;
+	
+	
+
+	public Nota() {
+		super();
+		
+	}
 
 	public Nota(int id, Aluno aluno, Disciplina disciplina, double valor) {
 		super();

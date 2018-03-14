@@ -2,6 +2,8 @@ package br.edu.ifal.schoolsystem.servico;
 
 import java.util.List;
 
+import javax.management.NotificationBroadcaster;
+
 import br.edu.ifal.schoolsystem.modelo.Nota;
 
 public class Relatorio {
@@ -15,7 +17,7 @@ public class Relatorio {
 		for (Nota nota : notas) {
 			if(nota.getValor() > maiorNota) {
 				maiorNota = nota.getValor();
-			}else if(nota.getValor() < menorNota) {
+			} if(nota.getValor() < menorNota) {
 				menorNota = nota.getValor();
 			}
 		}
