@@ -33,6 +33,13 @@ public class Relatorio {
 	private void setarMaioresNotas(List<Nota> notas) {
 		List<Nota> notasOrdemDecrescente = notas.stream().sorted(Comparator.comparing(Nota::getValor)).collect(Collectors.toList());
 		Collections.reverse(notasOrdemDecrescente);
+		
+		//this.top3Notas = notasOrdemDecrescente.subList(0, 3);
+		for (int i = 0; i < 3; i++) {
+			if (notasOrdemDecrescente.size() > i) {
+				this.top3Notas.add(notasOrdemDecrescente.get(i));
+			}
+		}
 	}
 
 
@@ -44,6 +51,11 @@ public class Relatorio {
 	public double getMenorNota() {
 		return menorNota;
 	}
+
+	public List<Nota> getTop3Notas() {
+		return top3Notas;
+	}
+	
 	
 	
 }
