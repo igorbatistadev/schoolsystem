@@ -5,7 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
+
+import br.edu.ifal.schoolsystem.Enum.TipoDeAluno;
 
 @Entity
 @DiscriminatorValue("A")
@@ -16,6 +20,12 @@ public class Aluno extends Pessoa{
 
 	@ManyToMany
 	private List<Disciplina> disciplinas;
+	
+
+	@Column(name = "aluno_Enum", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoDeAluno tipoDeAluno = TipoDeAluno.BOLSAASSISTENCIA;
+	
 
 	public Aluno(String matricula) {
 		super();

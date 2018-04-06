@@ -5,7 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
+
+import br.edu.ifal.schoolsystem.Enum.TipoProfessor;
 
 @Entity
 @DiscriminatorValue("P")
@@ -17,10 +21,16 @@ public class Professor extends Pessoa{
 	@OneToMany
 	private List<Disciplina> disciplinas;
 	
+	@Column(name = "professor_Enum", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoProfessor tipoProfessor = TipoProfessor.EFETIVO;
+	
 	public Professor(String formacao) {
 		super();
 		this.formacao = formacao;
 	}
+	
+	
 	public Professor() {
 		super();
 		
