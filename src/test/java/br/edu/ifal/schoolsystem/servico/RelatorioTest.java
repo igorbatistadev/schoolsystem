@@ -152,7 +152,7 @@ public class RelatorioTest {
 		notas.add(new Nota(1,alunos.get(0),disciplina,2.5));		
 		notas.add(new Nota(2,alunos.get(1),disciplina,9.5));	
 		notas.add(new Nota(3,alunos.get(2),disciplina,7.5));
-		notas.add(new Nota(4,alunos.get(3),disciplina,0));
+		notas.add(new Nota(4,alunos.get(3),disciplina,0.0));
 		
 		
 		relatorio.gerar(notas);
