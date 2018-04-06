@@ -3,6 +3,8 @@ package br.edu.ifal.schoolsystem.modelo;
 import java.util.List;
 
 import javax.persistence.Column;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -14,7 +16,7 @@ import br.edu.ifal.schoolsystem.Enum.TipoDeAluno;
 
 @Entity
 @DiscriminatorValue("A")
-public class Aluno extends Pessoa{
+public class Aluno extends Pessoa {
 
 	@Column
 	private String matricula;
@@ -22,6 +24,8 @@ public class Aluno extends Pessoa{
 	@ManyToMany
 	private List<Disciplina> disciplinas;
 	
+	@ElementCollection
+	private List<String> telefones;
 
 	@Column(name = "aluno_Enum", nullable = false)
 	@Enumerated(EnumType.STRING)
