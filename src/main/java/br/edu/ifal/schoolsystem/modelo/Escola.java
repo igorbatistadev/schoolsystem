@@ -95,7 +95,49 @@ public class Escola {
     
     public void removerProfessor(Professor p) {
     	professores.remove(p);
-  }
+    }
+    
+    
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cursos == null) ? 0 : cursos.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((professores == null) ? 0 : professores.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Escola other = (Escola) obj;
+		if (cursos == null) {
+			if (other.cursos != null)
+				return false;
+		} else if (!cursos.equals(other.cursos))
+			return false;
+		if (id != other.id)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (professores == null) {
+			if (other.professores != null)
+				return false;
+		} else if (!professores.equals(other.professores))
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
