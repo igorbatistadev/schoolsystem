@@ -4,9 +4,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import br.edu.ifal.schoolsystem.Enum.TipoProfessor;
 
 @Entity
 @Table(name ="professor")
@@ -24,12 +28,21 @@ public class Professor {
 	@OneToMany
 	private List<Disciplina> disciplinas;
 	
+	@Column(name = "professor_Enum", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoProfessor tipoProfessor = TipoProfessor.EFETIVO;
+	
 	public Professor(int id, String nome, String formacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.formacao = formacao;
 	}
+	
+	
+
+	
+	
 	public Professor() {
 		super();
 		

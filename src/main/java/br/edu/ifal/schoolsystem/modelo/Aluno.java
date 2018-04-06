@@ -4,9 +4,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import br.edu.ifal.schoolsystem.Enum.TipoDeAluno;
 
 @Entity
 @Table(name = "aluno")
@@ -23,6 +27,12 @@ public class Aluno {
 
 	@ManyToMany
 	private List<Disciplina> disciplinas;
+	
+
+	@Column(name = "aluno_Enum", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoDeAluno tipoDeAluno = TipoDeAluno.BOLSAASSISTENCIA;
+	
 
 	public Aluno(int id, String matricula, String nome) {
 		super();
