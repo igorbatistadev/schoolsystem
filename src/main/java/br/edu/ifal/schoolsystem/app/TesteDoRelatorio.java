@@ -12,9 +12,18 @@ public class TesteDoRelatorio {
 
 	public static void main(String[] args) {
 		List<Aluno> alunos = new ArrayList<Aluno>();
-		Aluno ze = new Aluno(5, "2018", "ze");
-		Aluno ana = new Aluno(6, "2019", "ana");
-		Aluno joao = new Aluno(3, "2017", "joao");
+		Aluno ze = new Aluno("2018");
+		ze.setNome("Ze");
+		ze.setIdade(16);
+		ze.setSexo('M');
+		Aluno ana = new Aluno("2019");
+		ana.setNome("Ana");
+		ana.setIdade(18);
+		ana.setSexo('F');
+		Aluno joao = new Aluno("2017");
+		joao.setNome("João");
+		joao.setIdade(17);
+		joao.setSexo('M');
 		alunos.add(ze);
 		alunos.add(ana);
 		alunos.add(joao);

@@ -27,7 +27,7 @@ public class Main {
 		List<Professor> professores = new ArrayList<Professor>();
 		List<Curso> cursos = new ArrayList<Curso>();
 		
-		
+		/*
 		AlunoDAO dao = new AlunoDAO();
 		Aluno aluno = new Aluno(1, "20162594", "João Marcos");
 		//alunosP.add(aluno);
@@ -72,7 +72,7 @@ public class Main {
 		EscolaDAO daoE = new EscolaDAO();
 		Escola escola = new Escola(1, "IFAL -  CAMPUS RIO LARGO", professores, cursos);
 		daoE.salvar(escola);
-		
+		*/
 		
 	}
 

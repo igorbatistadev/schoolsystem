@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,6 +26,9 @@ public class Aluno extends Pessoa{
 	@Column(name = "aluno_Enum", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipoDeAluno tipoDeAluno = TipoDeAluno.BOLSAASSISTENCIA;
+	
+	@Embedded
+	private Endereco endereco;
 	
 
 	public Aluno(String matricula) {

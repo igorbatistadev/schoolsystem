@@ -11,6 +11,8 @@
 		<class>br.edu.ifal.schoolsystem.modelo.Disciplina</class>
 		<class>br.edu.ifal.schoolsystem.modelo.Curso</class>
 		<class>br.edu.ifal.schoolsystem.modelo.Escola</class>
+		<class>br.edu.ifal.schoolsystem.modelo.Assunto</class>
+		<class>br.edu.ifal.schoolsystem.modelo.Endereco</class>
 		
         <properties>
         
