@@ -3,14 +3,17 @@ package br.edu.ifal.schoolsystem.modelo;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.edu.ifal.schoolsystem.Enum.TipoDeAluno;
+import freemarker.template.TemplateNotFoundException;
 
 @Entity
 @Table(name = "aluno")
@@ -28,6 +31,8 @@ public class Aluno {
 	@ManyToMany
 	private List<Disciplina> disciplinas;
 	
+	@ElementCollection
+	private List<String> telefones;
 
 	@Column(name = "aluno_Enum", nullable = false)
 	@Enumerated(EnumType.STRING)
@@ -77,7 +82,7 @@ public class Aluno {
 		this.disciplinas = disciplinas;
 	}
 	
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
