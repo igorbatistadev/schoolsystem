@@ -3,20 +3,13 @@ package br.edu.ifal.schoolsystem.modelo;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name ="professor")
-public class Professor {
-	
-	@Id
-	private int id;
-	
-	@Column
-	private String nome;
+@DiscriminatorValue("P")
+public class Professor extends Pessoa{
 	
 	@Column
 	private String formacao;
@@ -24,10 +17,8 @@ public class Professor {
 	@OneToMany
 	private List<Disciplina> disciplinas;
 	
-	public Professor(int id, String nome, String formacao) {
+	public Professor(String formacao) {
 		super();
-		this.id = id;
-		this.nome = nome;
 		this.formacao = formacao;
 	}
 	public Professor() {
@@ -35,26 +26,6 @@ public class Professor {
 		
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		if(nome != null) {
-			this.nome = nome;
-		}
-	}
 	public String getFormacao() {
 		return formacao;
 	}
@@ -65,31 +36,28 @@ public class Professor {
 		}
 	}
 	
-	
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
 
-
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((disciplinas == null) ? 0 : disciplinas.hashCode());
 		result = prime * result + ((formacao == null) ? 0 : formacao.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -104,19 +72,12 @@ public class Professor {
 				return false;
 		} else if (!formacao.equals(other.formacao))
 			return false;
-		if (id != other.id)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Professor: nome = " + nome + ", formacao = " + formacao + ".";
+		return "Professor [formacao=" + formacao + ", disciplinas=" + disciplinas + "]";
 	}
-	
+
 }
