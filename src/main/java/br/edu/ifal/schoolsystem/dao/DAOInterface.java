@@ -3,6 +3,8 @@ package br.edu.ifal.schoolsystem.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
+
 public interface DAOInterface<T, Id extends Serializable> {	
 
 	public void salvar(T entity);
