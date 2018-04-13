@@ -27,9 +27,8 @@ public class Pessoa {
 		
 	}
 	
-	public Pessoa(int id, String nome, int idade, char sexo) {
+	public Pessoa(String nome, int idade, char sexo) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.idade = idade;
 		this.sexo = sexo;
