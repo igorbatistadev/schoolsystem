@@ -18,7 +18,6 @@ public class Assunto {
 	@Column
 	private String nome;
 	
-	@Column
 	@ManyToOne
 	private Disciplina disciplina;
 

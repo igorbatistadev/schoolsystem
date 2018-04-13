@@ -13,13 +13,42 @@ import br.edu.ifal.schoolsystem.modelo.Disciplina;
 import br.edu.ifal.schoolsystem.modelo.Professor;
 
 import br.edu.ifal.schoolsystem.dao.EscolaDAO;
+import br.edu.ifal.schoolsystem.dao.PessoaDAO;
 import br.edu.ifal.schoolsystem.modelo.Escola;
+import br.edu.ifal.schoolsystem.modelo.Pessoa;
 
 
 public class Main {
 
 	public static void main(String[] args) {
 		
+		PessoaDAO daoP = new PessoaDAO();
+		Pessoa p1 = new Pessoa();
+		p1.setNome("Raniel");
+		p1.setIdade(19);
+		p1.setSexo('F');
+		daoP.salvar(p1);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
 		List<Aluno> alunosP = new ArrayList<Aluno>();
 		List<Aluno> alunosA = new ArrayList<Aluno>();
 		List<Aluno> alunos = new ArrayList<Aluno>();
@@ -27,7 +56,7 @@ public class Main {
 		List<Professor> professores = new ArrayList<Professor>();
 		List<Curso> cursos = new ArrayList<Curso>();
 		
-		/*
+		
 		AlunoDAO dao = new AlunoDAO();
 		Aluno aluno = new Aluno(1, "20162594", "João Marcos");
 		//alunosP.add(aluno);
