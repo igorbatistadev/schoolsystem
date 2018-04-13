@@ -1,53 +1,81 @@
 package br.edu.ifal.schoolsystem.app;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import br.edu.ifal.schoolsystem.dao.AlunoDAO;
-import br.edu.ifal.schoolsystem.dao.CursoDAO;
 import br.edu.ifal.schoolsystem.dao.DisciplinaDAO;
+import br.edu.ifal.schoolsystem.dao.NotaDAO;
 import br.edu.ifal.schoolsystem.dao.ProfessorDAO;
 import br.edu.ifal.schoolsystem.modelo.Aluno;
-import br.edu.ifal.schoolsystem.modelo.Curso;
 import br.edu.ifal.schoolsystem.modelo.Disciplina;
+import br.edu.ifal.schoolsystem.modelo.Endereco;
+import br.edu.ifal.schoolsystem.modelo.Nota;
 import br.edu.ifal.schoolsystem.modelo.Professor;
-
-import br.edu.ifal.schoolsystem.dao.EscolaDAO;
-import br.edu.ifal.schoolsystem.dao.PessoaDAO;
-import br.edu.ifal.schoolsystem.modelo.Escola;
-import br.edu.ifal.schoolsystem.modelo.Pessoa;
 
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		PessoaDAO daoP = new PessoaDAO();
-		Pessoa p1 = new Pessoa();
-		p1.setNome("Raniel");
-		p1.setIdade(19);
-		p1.setSexo('F');
-		daoP.salvar(p1);
 		
 		
+		/*AlunoDAO daoA = new AlunoDAO();
+		Aluno aluno = new Aluno();
+		aluno.setNome("THIAgo");
+		aluno.setIdade(99);
+		aluno.setMatricula("2004G55047");
+		aluno.setSexo('M');
+		
+		Endereco endereco =  new Endereco();
+		
+		endereco.setCidade("Rio Largo");
+		endereco.setBairro("Rua 16");
+		endereco.setCep("57100-000");
+		endereco.setEstado("Alagoas");
+		endereco.setLogradouro("Prasdfgasdfa");
+		endereco.setNumero("07A");
+		
+		aluno.setEndereco(endereco);
+		
+		//daoA.atualizar(aluno);
+		daoA.salvar(aluno);
+		
+		ProfessorDAO daoP = new ProfessorDAO();
+		Professor professor = new Professor();
+		professor.setNome("Ivo");
+		professor.setIdade(36);
+		professor.setSexo('M');
+		professor.setFormacao("Doutor em Redes de Computadores");
+		daoP.salvar(professor);
+		
+		ProfessorDAO daoP = new ProfessorDAO();*/
+		
+		DisciplinaDAO daoD = new DisciplinaDAO();
+		/*Disciplina disciplina = new Disciplina();
+		disciplina.setNome("Administração de Redes de Cmoputadores");
+		disciplina.setProfessor(daoP.buscarPorId("3"));
+		daoD.salvar(disciplina);*/
+		
+		AlunoDAO daoA = new AlunoDAO();
+		Aluno aluno = daoA.buscarPorId("18");
 		
 		
+		ArrayList<Double> notas = new ArrayList<>(); 
+		notas.add(9.8);
+		notas.add(9.7);
+		notas.add(9.6);
+		notas.add(9.5);
+		notas.add(9.4);
+		notas.add(9.3);
 		
+		NotaDAO daoN = new NotaDAO();
+		Nota nota = daoN.buscarPorId("20");
+		nota.setAluno(aluno);
+		nota.setDisciplina(daoD.buscarPorId("0"));
+		nota.setNotas(notas);
+		daoN.atualizar(nota);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		/*
 		List<Aluno> alunosP = new ArrayList<Aluno>();
 		List<Aluno> alunosA = new ArrayList<Aluno>();

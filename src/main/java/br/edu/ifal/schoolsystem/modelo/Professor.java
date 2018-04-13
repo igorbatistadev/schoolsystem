@@ -21,7 +21,7 @@ public class Professor extends Pessoa{
 	@OneToMany
 	private List<Disciplina> disciplinas;
 	
-	@Column(name = "professor_Enum", nullable = false)
+	@Column(name = "professor_Enum", nullable = true)
 	@Enumerated(EnumType.STRING)
 	private TipoProfessor tipoProfessor = TipoProfessor.EFETIVO;
 	
@@ -29,8 +29,7 @@ public class Professor extends Pessoa{
 		super();
 		this.formacao = formacao;
 	}
-	
-	
+		
 	public Professor() {
 		super();
 		

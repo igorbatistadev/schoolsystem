@@ -27,7 +27,7 @@ public class Aluno extends Pessoa {
 	@ElementCollection
 	private List<String> telefones;
 
-	@Column(name = "aluno_Enum", nullable = false)
+	@Column(name = "aluno_Enum", nullable = true)
 	@Enumerated(EnumType.STRING)
 	private TipoDeAluno tipoDeAluno = TipoDeAluno.BOLSAASSISTENCIA;
 	
@@ -58,6 +58,30 @@ public class Aluno extends Pessoa {
 
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
+	}
+
+	public List<String> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<String> telefones) {
+		this.telefones = telefones;
+	}
+
+	public TipoDeAluno getTipoDeAluno() {
+		return tipoDeAluno;
+	}
+
+	public void setTipoDeAluno(TipoDeAluno tipoDeAluno) {
+		this.tipoDeAluno = tipoDeAluno;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override

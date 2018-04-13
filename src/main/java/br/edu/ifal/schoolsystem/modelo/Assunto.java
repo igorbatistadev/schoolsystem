@@ -25,9 +25,8 @@ public class Assunto {
 		
 	}
 	
-	public Assunto(int id, String nome, Disciplina disciplina) {
+	public Assunto(String nome, Disciplina disciplina) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.disciplina = disciplina;
 	}

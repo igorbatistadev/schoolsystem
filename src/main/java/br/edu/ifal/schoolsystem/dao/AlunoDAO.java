@@ -8,11 +8,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.apache.tools.ant.util.SymbolicLinkUtils;
+
 
 import br.edu.ifal.schoolsystem.modelo.Aluno;
 
 public class AlunoDAO implements DAOInterface <Aluno, String>{
+	
+	
+	static {
+		
+	}
 	
 	private final String PERSISTENCE_UNIT_NAME = "psunit1";
 	private EntityManagerFactory factory;
@@ -34,9 +39,15 @@ public class AlunoDAO implements DAOInterface <Aluno, String>{
 	
 
 	public void salvar(Aluno aluno) {
-		iniciarConexao();
+		//iniciarConexao();
+		EntityManager em = factory.createEntityManager();
+		em.getTransaction().begin();
+		
 		em.persist(aluno);
-		fecharConexao();		
+		
+		em.getTransaction().commit();
+		em.close();	
+		//fecharConexao();		
 	}
 
 	public void atualizar(Aluno aluno) {

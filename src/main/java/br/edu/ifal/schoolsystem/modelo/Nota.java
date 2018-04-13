@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 public class Nota {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
 	@ManyToOne
@@ -31,6 +34,14 @@ public class Nota {
 	private List<Double> notas;
 	
 	
+
+	public List<Double> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Double> notas) {
+		this.notas = notas;
+	}
 
 	public Nota() {
 		
@@ -72,11 +83,14 @@ public class Nota {
 		return mediaFinal;
 	}
 
-	public void setValor(double valor) {
-		valor = valor;
+	public Double getMediaFinal() {
+		return mediaFinal;
+	}
+
+	public void setMediaFinal(Double mediaFinal) {
+		this.mediaFinal = mediaFinal;
 	}
 
 	
-	
-	
+
 }
