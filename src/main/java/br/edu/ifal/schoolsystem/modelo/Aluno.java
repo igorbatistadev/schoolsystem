@@ -33,7 +33,7 @@ public class Aluno extends Pessoa {
 	
 	@Embedded
 	private Endereco endereco;
-	
+	 
 
 	public Aluno(String matricula) {
 		super();

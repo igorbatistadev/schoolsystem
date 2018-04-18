@@ -19,12 +19,12 @@ public class Main {
 		
 		
 		
-		/*AlunoDAO daoA = new AlunoDAO();
+		AlunoDAO daoA = new AlunoDAO();
 		Aluno aluno = new Aluno();
-		aluno.setNome("THIAgo");
-		aluno.setIdade(99);
-		aluno.setMatricula("2004G55047");
-		aluno.setSexo('M');
+		aluno.setNome("Janaina");
+		aluno.setIdade(22);
+		aluno.setMatricula("2011G55047");
+		aluno.setSexo('F');
 		
 		Endereco endereco =  new Endereco();
 		
@@ -39,7 +39,7 @@ public class Main {
 		
 		//daoA.atualizar(aluno);
 		daoA.salvar(aluno);
-		
+		/*
 		ProfessorDAO daoP = new ProfessorDAO();
 		Professor professor = new Professor();
 		professor.setNome("Ivo");
@@ -48,14 +48,15 @@ public class Main {
 		professor.setFormacao("Doutor em Redes de Computadores");
 		daoP.salvar(professor);
 		
-		ProfessorDAO daoP = new ProfessorDAO();*/
+		ProfessorDAO daoP = new ProfessorDAO();
 		
 		DisciplinaDAO daoD = new DisciplinaDAO();
+		*/
 		/*Disciplina disciplina = new Disciplina();
 		disciplina.setNome("Administração de Redes de Cmoputadores");
 		disciplina.setProfessor(daoP.buscarPorId("3"));
 		daoD.salvar(disciplina);*/
-		
+		/*
 		AlunoDAO daoA = new AlunoDAO();
 		Aluno aluno = daoA.buscarPorId("18");
 		
@@ -74,7 +75,7 @@ public class Main {
 		nota.setDisciplina(daoD.buscarPorId("0"));
 		nota.setNotas(notas);
 		daoN.atualizar(nota);
-		
+		*/
 
 		/*
 		List<Aluno> alunosP = new ArrayList<Aluno>();
